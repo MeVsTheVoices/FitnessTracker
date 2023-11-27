@@ -43,3 +43,12 @@ button {
 h1 {
     color: #555;
 }
+
+table th, table td {
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+
+table tr:hover {
+    background-color: #f4f4f4;
+}
