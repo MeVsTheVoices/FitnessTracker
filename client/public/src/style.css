@@ -3,9 +3,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    color: #333;
 }
 
-h1, table, div {
+h1, table, form, h3 {
     margin: 20px auto;
     width: 80%;
     text-align: center;
@@ -14,9 +15,31 @@ h1, table, div {
 table {
     border-collapse: collapse;
     border: 1px solid #ddd;
-
+    background-color: #fff;
 }
 
 input, button {
     margin: 5px;
+}
+
+input {
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.counter {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #555;
 }

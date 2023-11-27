@@ -11,21 +11,22 @@
     <h1>Fitness Tracker</h1>
 
     <!-- Input Form -->
-    <div>
+    <form>
         <input type="text" id="exercise" placeholder="Exercise e.g., Push-up">
         <input type="number" id="reps" placeholder="Reps">
         <button onclick="addExercise()">Add Exercise</button>
-    </div>
+    </form>
 
     <!-- Total Reps -->
-    <h3>Total Reps: <span id="totalReps">0</span></h3>
+    <h3 class="counter">Total Reps: <span id="totalReps">0</span></h3>
 
     <!-- Display Table -->
-    <table border="1">
+    <table border-style="1px">
         <thead>
             <tr>
                 <th>Exercise</th>
                 <th>Reps</th>
+                <th>Date</th>
                 <th>Action</th>
             </tr>
         </thead>
