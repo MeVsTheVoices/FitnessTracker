@@ -4,43 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        h1, table, div {
-            margin: 20px auto;
-            width: 80%;
-            text-align: center;
-        }
-        input, button {
-            margin: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>Fitness Tracker</h1>
 
     <!-- Input Form -->
-    <div>
+    <form>
         <input type="text" id="exercise" placeholder="Exercise e.g., Push-up">
         <input type="number" id="reps" placeholder="Reps">
         <button onclick="addExercise()">Add Exercise</button>
-    </div>
+    </form>
 
     <!-- Total Reps -->
-    <h3>Total Reps: <span id="totalReps">0</span></h3>
+    <h3 class="counter">Total Reps: <span id="totalReps">0</span></h3>
 
     <!-- Display Table -->
-    <table border="1">
+    <table border-style="1px">
         <thead>
             <tr>
                 <th>Exercise</th>
                 <th>Reps</th>
+                <th>Date</th>
                 <th>Action</th>
             </tr>
         </thead>

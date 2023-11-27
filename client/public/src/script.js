@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const storedExercises = JSON.parse(localStorage.getItem("exercises"));
     if (storedExercises) {
-        storedExercises.forEach(exercise => addExerciseToTable(exercise.exerciseName, exercise.reps));
+        storedExercises.forEach(exercise => addExerciseToTable(exercise.exerciseName, exercise.reps, exercise.date));
     }
     updateTotalReps();
 });
@@ -11,30 +11,32 @@ function addExercise() {
     // Get input values
     const exerciseName = document.getElementById("exercise").value.trim();
     const reps = parseInt(document.getElementById("reps").value);
+    const date = new Date().toLocaleDateString(); // Get the current date
 
     if (exerciseName === "" || isNaN(reps)) {
         alert("Please fill out both fields correctly.");
         return;
     }
 
-    addExerciseToTable(exerciseName, reps);
-    saveExercise(exerciseName, reps);
+    addExerciseToTable(exerciseName, reps, date);
+    saveExercise(exerciseName, reps, date);
 
     // Clear the input fields
     document.getElementById("exercise").value = "";
     document.getElementById("reps").value = "";
 }
 
-function addExerciseToTable(exerciseName, reps) {
+function addExerciseToTable(exerciseName, reps, date) {
     const table = document.getElementById("exerciseTable");
 
     // Create a new row and cells
     const newRow = table.insertRow();
     newRow.insertCell(0).textContent = exerciseName;
     newRow.insertCell(1).textContent = reps;
+    newRow.insertCell(2).textContent = date; // Display the date
 
     // Delete button
-    const deleteCell = newRow.insertCell(2);
+    const deleteCell = newRow.insertCell(3);
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.onclick = function() {
@@ -59,9 +61,9 @@ function updateTotalReps() {
     document.getElementById("totalReps").textContent = totalReps;
 }
 
-function saveExercise(exerciseName, reps) {
+function saveExercise(exerciseName, reps, date) {
     let exercises = JSON.parse(localStorage.getItem("exercises")) || [];
-    exercises.push({ exerciseName, reps });
+    exercises.push({ exerciseName, reps, date });
     localStorage.setItem("exercises", JSON.stringify(exercises));
 }
 
